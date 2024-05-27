@@ -20,6 +20,10 @@ fun main() {
     println("${objectFoodPollA.name} : ${objectFoodPollA.count} / ${ObjectFoodPoll.total}")
     println("${objectFoodPollB.name} : ${objectFoodPollB.count} / ${ObjectFoodPoll.total}")
 
+
+    val sample = ObjectExpression()
+    sample.sample.methodA()
+
 }
 
 // 1. 객체 선언(Object Declaration)
@@ -65,9 +69,36 @@ class ObjectExpression() {
     }
 
     // 만약에 부모의 생성자를 가지고 있으면, 적절한 생성자 파라미터를 넘겨줄 수 있습니다.
+
+    val sample: ObjectTestA = object : ObjectTestA(), InterfaceA,  InterfaceB {
+        override fun methodA() {
+            super.methodA()
+            println("A")
+        }
+
+        override fun methodB() {
+            println("B")
+        }
+    }
+
 }
 
 open class SayHi {
     open val message = "hello"
 }
 
+abstract class ObjectTestA{
+   var infoA = "A"
+   open fun methodA() {
+       println("AA")
+   }
+}
+
+
+interface InterfaceA {
+//    fun methodA()
+}
+
+interface InterfaceB {
+    fun methodB()
+}

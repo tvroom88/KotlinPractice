@@ -18,5 +18,3 @@ val print = {
     val b = 3
     a+b
 }
-
-val one = { -> println(it)}
